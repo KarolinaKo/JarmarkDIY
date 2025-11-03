@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 
+      SEO & METADANE (Podgląd w mediach społecznościowych)
+      Wypełnij, aby linki wyglądały dobrze po udostępnieniu
+    -->
+    <title>Przedświąteczny Jarmark DIY dla Kacpra</title>
+    <meta name="description" content="Rękodzieło z sercem. Cały dochód ze zbiórki i aukcji wspiera badania nad EIF3F. Pomóż Kacprowi!">
+    
+    <!-- Open Graph (Facebook, Instagram, etc.) -->
+    <meta property="og:title" content="Przedświąteczny Jarmark DIY dla Kacpra">
+    <meta property="og:description" content="Rękodzieło z sercem. Cały dochód wspiera badania nad EIF3F.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://TWOJA-DOMENA.PL/"> <!-- Wklej tutaj swój docelowy URL -->
+    <meta property="og:image" content="https://placehold.co/1200x630/2E5B45/F7F3E8?text=Jarmark+dla+Kacpra"> <!-- Wklej URL do obrazka podglądu (1200x630px) -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Przedświąteczny Jarmark DIY dla Kacpra">
+    <meta name="twitter:description" content="Rękodzieło z sercem. Cały dochód wspiera badania nad EIF3F.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/2E5B45/F7F3E8?text=Jarmark+dla+Kacpra"> <!-- Ten sam obrazek co w OG -->
+
+    <!--
+      IMPORT CZCIONEK (Google Fonts)
+      Cormorant Garamond (Serif, nagłówki), Work Sans (Sans-serif, tekst), Pacifico (Script, akcenty)
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Pacifico&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!--
+      STYLE CSS
+      Wszystkie style są osadzone w jednym pliku dla wydajności (link-in-bio).
+    -->
+    <style>
+        /* * --- 0. ZMIENNE I GLOBALNY RESET ---
+         */
+        :root {
+            /* Paleta kolorów (Retro Holiday) */
+            --c-bg: #F7F3E8;          /* Kredowy / Eggshell */
+            --c-text: #2A2A2A;        /* Węgiel / Charcoal Ink */
+            --c-pine: #2E5B45;        /* Sosna / Pine Green */
+            --c-cranberry: #8C2F39;   /* Żurawina / Deep Cranberry */
+            --c-gold: #C79A3B;        /* Ciepłe złoto / Warm Gold */
+            --c-border: rgba(42, 42, 42, 0.2); /* Subtelna ramka */
+            
+            /* Typografia (Retro) */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Work Sans', sans-serif;
+            --font-accent: 'Pacifico', cursive;
+        }
+
+        /* Prosty reset i ustawienia globalne */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--c-text);
+            background-color: var(--c-bg);
+            /* Subtelna tekstura papieru/ziarna */
+            background-image: radial-gradient(rgba(42, 42, 42, 0.04) 1px, transparent 1px);
+            background-size: 4px 4px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        img, picture, video, canvas, svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: var(--c-pine);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* * --- 1. DOSTĘPNOŚĆ (A11Y) ---
+         */
+
+        /* Szanowanie preferencji użytkownika dot. ruchu */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Lepszy focus-state */
+        :focus-visible {
+            outline: 3px solid var(--c-pine);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* * --- 2. ANIMACJE ---
+         */
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animacja "mrugania" dla gwiazdek */
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .twinkle {
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        /* * --- 3. KOMPONENTY (Przyciski, Karty, itp.) ---
+         */
+
+        /* Główny kontener (idealny dla mobile) */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Bloki sekcji */
+        .section {
+            padding: 2.5rem 0;
+            border-bottom: 1px dashed var(--c-border); /* Cienka ramka w stylu pinstripe */
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            color: var(--c-pine);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .accent-text {
+            font-family: var(--font-accent);
+            color: var(--c-cranberry);
+            font-size: 1.1rem;
+        }
+
+        /* Przyciski (CTAs) */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(42, 42, 42, 0.1);
+            opacity: 1;
+        }
+
+        .btn--primary {
+            background-color: var(--c-pine);
+            color: var(--c-bg);
+        }
+        .btn--primary:hover {
+            background-color: #254c3b;
+        }
+
+        .btn--secondary {
+            background-color: transparent;
+            color: var(--c-pine);
+            border-color: var(--c-pine);
+        }
+        .btn--secondary:hover {
+            background-color: rgba(46, 91, 69, 0.05);
+        }
+        
+        .btn--small {
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .btn--large {
+            font-size: 1.125rem;
+            padding: 0.875rem 2rem;
+        }
+        
+        .btn-flex-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* Dekoracyjne ikonki SVG */
+        .icon-decoration {
+            width: 32px;
+            height: 32px;
+            fill: var(--c-gold);
+            margin: 0.5rem auto;
+        }
+
+        /* * --- 4. STYLE SEKCJI ---
+         */
+
+        /* --- Górny pasek z informacją --- */
+        .top-bar {
+            background-color: var(--c-cranberry);
+            color: var(--c-bg);
+            padding: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* --- 1. Sekcja Hero --- */
+        .hero {
+            padding: 3rem 0 2.5rem 0;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.25rem, 8vw, 3rem); /* Responsywny rozmiar */
+            font-weight: 700;
+            color: var(--c-pine);
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero__subline {
+            font-size: 1.125rem;
+            color: var(--c-text);
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .hero__badge {
+            display: inline-block;
+            font-family: var(--font-accent);
+            color: var(--c-cranberry);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transform: rotate(-3deg);
+        }
+        
+        /* --- 2. O Wydarzeniu --- */
+        .about-event {
+            text-align: center;
+        }
+        
+        /* --- 3. O Kacprze --- */
+        .about-kacper p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- 4. Jak Pomóc (Siatka CTA) --- */
+        .how-to-help__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .how-to-help__card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #fff;
+            padding: 1.25rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--c-pine);
+            /* Efekt znaczka pocztowego */
+            border: 1px dashed var(--c-border);
+            box-shadow: 0 4px 12px rgba(42, 42, 42, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .how-to-help__card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(42, 42, 42, 0.1);
+            opacity: 1;
+        }
+        .how-to-help__card svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--c-pine);
+        }
+
+        /* --- 5. Aukcje --- */
+        .auction-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 480px) {
+            .auction-grid {
+                /* Lepsze dopasowanie na szerszych ekranach "link-in-bio" */
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+        
+        .auction-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--c-text);
+            border: 1px solid var(--c-border);
+            box-shadow: 0 4px 12px rgba(42, 42, 42, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .auction-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(42, 42, 42, 0.1);
+            opacity: 1;
+        }
+        
+        .auction-card__image-wrapper {
+            position: relative;
+        }
+
+        .auction-card__image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background-color: #eee;
+        }
+        
+        .auction-card__label {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background-color: rgba(42, 42, 42, 0.8);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .auction-card__title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.125rem;
+            padding: 0.75rem 0.75rem 0.25rem;
+            color: var(--c-text);
+        }
+        
+        .auction-card .btn {
+            margin: 0.5rem 0.75rem 0.75rem;
+            width: calc(100% - 1.5rem);
+        }
+        
+        /* --- 6. FAQ --- */
+        .faq details {
+            background: #fff;
+            border: 1px solid var(--c-border);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 1rem;
+        }
+        .faq summary {
+            font-weight: 600;
+            color: var(--c-pine);
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+        .faq details[open] summary {
+            margin-bottom: 0.5rem;
+        }
+        .faq p {
+            font-size: 0.95rem;
+            padding-bottom: 0.5rem;
+        }
+
+        /* --- 7. Stopka --- */
+        .site-footer {
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--c-pine);
+            opacity: 0.7;
+        }
+        .site-footer p {
+            margin-bottom: 0.5rem;
+        }
+        .site-footer a {
+            color: var(--c-pine);
+            text-decoration: underline;
+            margin: 0 0.25rem;
+        }
+        
+        /* --- 8. Przycisk "Powrót na górę" --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--c-pine);
+            color: var(--c-bg);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Ikony SVG (do ponownego użycia) -->
+    <svg width="0" height="0" style="position:absolute; display:none;">
+        <defs>
+            <symbol id="svg-star" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"/>
+            </symbol>
+            <symbol id="svg-heart" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </symbol>
+            <symbol id="svg-group" viewBox="0 0 24 24">
+                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </symbol>
+            <symbol id="svg-instagram" viewBox="0 0 24 24">
+                <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8c1.99 0 3.6-1.61 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Pasek informacyjny na górze -->
+    <div class="top-bar">
+        Nowe aukcje rękodzieła codziennie o 20:00! 🎁
+    </div>
+
+    <div class="container">
+        <!-- --- 1. SEKCJA HERO --- -->
+        <header class="hero section">
+            <h1 class="hero__title">
+                Przedświąteczny Jarmark DIY dla Kacpra 
+                <span class="twinkle" aria-hidden="true">🎄</span>
+            </h1>
+            <p class="hero__subline">
+                Rękodzieło z sercem. Cały dochód → badania nad <strong>EIF3F</strong>.
+            </p>
+            <a href="#aukcje" class="btn btn--primary btn--large">Zobacz aukcje</a>
+            <span class="hero__badge">
+                Stworzone z ChatGPT <span class="twinkle" aria-hidden="true">✨</span>
+            </span>
+        </header>
+
+        <main id="main-content">
+
+            <!-- --- 2. O WYDARZENIU --- -->
+            <section class="about-event section" id="o-wydarzeniu">
+                <h2 class="section-title">O Jarmarku</h2>
+                <p>
+                    Witaj na naszym magicznym, świątecznym jarmarku online! Przez kilka dni wspaniali rękodzielnicy wystawiają swoje prace na aukcje, z których <strong>całkowity dochód</strong> przeznaczony jest na wsparcie badań nad ultrarzadką chorobą genetyczną EIF3F.
+                </p>
+                <p>
+                    Codziennie wieczorem pojawiają się nowe, wyjątkowe przedmioty. Organizacja tego wydarzenia wspierana jest przez AI (ChatGPT), abyśmy mogli skupić 100% naszej energii na pomaganiu!
+                </p>
+            </section>
+
+            <!-- --- 3. O KACPRZE I FUNDACJI --- -->
+            <section class="about-kacper section" id="o-kacprze">
+                <h2 class="section-title">Dla kogo zbieramy?</h2>
+                <p>
+                    Zbieramy fundusze dla <strong>Kacpra</strong> oraz na badania prowadzone przez fundację <strong>EIF3F</strong>. Kacper cierpi na ultrarzadką, postępującą chorobę genetyczną. Jedyną szansą jest terapia genowa, nad którą pracują naukowcy. Twoje wsparcie to dla nas światło w tunelu.
+                </p>
+                <div class="btn-flex-group">
+                    <a href="#" id="siepomaga-link" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Wpłać darowiznę (Siepomaga)</a>
+                    <a href="#" id="foundation-link" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Przeczytaj o badaniach EIF3F</a>
+                </div>
+            </section>
+
+            <!-- --- 4. JAK MOŻESZ POMÓC --- -->
+            <section class="how-to-help section" id="jak-pomoc">
+                <h2 class="section-title">Jak możesz pomóc?</h2>
+                <div class="how-to-help__grid">
+                    <!-- Karta 1 -->
+                    <a href="#aukcje" class="how-to-help__card">
+                        <svg aria-hidden="true"><use href="#svg-star"></use></svg>
+                        Weź udział w licytacjach
+                    </a>
+                    <!-- Karta 2 -->
+                    <a href="#" id="cta-siepomaga" class="how-to-help__card" target="_blank" rel="noopener noreferrer">
+                        <svg aria-hidden="true"><use href="#svg-heart"></use></svg>
+                        Wpłać darowiznę
+                    </a>
+                    <!-- Karta 3 -->
+                    <a href="#" id="cta-fb-group" class="how-to-help__card" target="_blank" rel="noopener noreferrer">
+                        <svg aria-hidden="true"><use href="#svg-group"></use></svg>
+                        Dołącz do rękodzielników
+                    </a>
+                    <!-- Karta 4 -->
+                    <a href="#" id="cta-instagram" class="how-to-help__card" target="_blank" rel="noopener noreferrer">
+                        <svg aria-hidden="true"><use href="#svg-instagram"></use></svg>
+                        Śledź nas na Instagramie
+                    </a>
+                </div>
+            </section>
+
+            <!-- --- 5. AKTUALNE AUKCJE --- -->
+            <section class="auctions section" id="aukcje">
+                <h2 class="section-title">Aktualne Aukcje</h2>
+                <div class="auction-grid" id="auction-grid-container">
+                    <!-- 
+                      Aukcje są wczytywane dynamicznie przez JavaScript.
+                      Edytuj listę 'AUCTIONS_DATA' w tagu <script> na dole tego pliku.
+                    -->
+                    <p class="text-center">Wczytywanie aukcji...</p>
+                </div>
+            </section>
+
+            <!-- --- 6. FAQ --- -->
+            <section class="faq section" id="faq">
+                <h2 class="section-title">FAQ</h2>
+                <details>
+                    <summary>Gdzie odbywają się licytacje?</summary>
+                    <p>Wszystkie licytacje odbywają się na naszym profilu na Instagramie (<strong id="faq-ig-link-text">@jarmark_dla_kacpra</strong>) oraz w dedykowanej grupie na Facebooku. Linki znajdziesz powyżej.</p>
+                </details>
+                <details>
+                    <summary>Jak mogę przekazać przedmiot na aukcję?</summary>
+                    <p>Jeśli jesteś rękodzielnikiem, dołącz do naszej grupy na Facebooku! Tam znajdziesz wszystkie informacje, jak zgłosić swój przedmiot i pomóc.</p>
+                </details>
+                <details>
+                    <summary>Co jeśli nie mam Instagrama / Facebooka?</summary>
+                    <p>Nadal możesz pomóc! Najważniejsze jest wsparcie finansowe zbiórki na Siepomaga. Możesz też udostępnić link do tej strony znajomym!</p>
+                </details>
+                <details>
+                    <summary>Jak się skontaktować z organizatorami?</summary>
+                    <p>Najszybciej odpowiadamy na wiadomości prywatne na Instagramie lub przez e-mail: <strong id="faq-email-link-text">kontakt@przyklad.pl</strong>.</p>
+                </details>
+            </section>
+
+        </main>
+    </div><!-- /.container -->
+
+    <!-- --- 7. STOPKA --- -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>Strona stworzona z pomocą ChatGPT i społeczności rękodzielników <span class="twinkle" aria-hidden="true">💫</span></p>
+            <nav>
+                <a href="mailto:kontakt@przyklad.pl" id="footer-email-link">Kontakt</a>
+                <!-- <a href="#">Polityka prywatności</a> -->
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Przycisk "Powrót na górę" -->
+    <a href="#top" class="back-to-top" aria-label="Powrót na górę">↑</a>
+
+
+    <!--
+      ==================================================================
+      >>> SKRYPTY I KONFIGURACJA <<<
+      
+      EDYTUJ PONIŻSZE WARTOŚCI, aby zaktualizować linki i aukcje.
+      ==================================================================
+    -->
+    <script>
+        // ----------------------------------------------------
+        // --- 1. KONFIGURACJA STRONY (EDYCJA LINKÓW) ---
+        // ----------------------------------------------------
+        // Wklej tutaj swoje docelowe adresy URL.
+        
+        const SITE_CONFIG = {
+            SIEPOMAGA_URL: "https://www.siepomaga.pl/kacper-wojtowicz", // Link do zbiórki na Siepomaga
+            FOUNDATION_URL: "https://www.eif3f.org/",                 // Link do strony o EIF3F
+            FB_GROUP_URL: "https://www.facebook.com/groups/rekodzielodlakacpra", // Link do grupy FB dla rękodzielników
+            INSTAGRAM_URL: "https://www.instagram.com/jarmark_dla_kacpra/",      // Link do profilu na Instagramie
+            CONTACT_EMAIL: "kontakt.jarmark@gmail.com" // Email kontaktowy
+        };
+
+        // ----------------------------------------------------
+        // --- 2. LISTA AUKCJI (EDYCJA PRZEDMIOTÓW) ---
+        // ----------------------------------------------------
+        // Dodaj lub usuń obiekty z tej listy, aby zaktualizować siatkę aukcji.
+        // - title: Nazwa przedmiotu
+        // - label: Etykieta (np. "Do 3.12, 21:00" lub "Nowość!"). Zostaw "" jeśli niepotrzebna.
+        // - img: URL do zdjęcia (użyj kwadratowych obrazków, np. 300x300px)
+        // - url: Link do posta na Instagramie/Facebooku z tą aukcją
+
+        const AUCTIONS_DATA = [
+            { 
+                title: "Sweterkowa Lalka Ręcznie Robiona", 
+                label: "Do 3.12, 21:00", 
+                img: "https://placehold.co/300x300/8C2F39/F7F3E8?text=Lalka", 
+                url: "#" /* Wklej link do licytacji */
+            },
+            { 
+                title: "Ceramiczny Kubek 'Leśny Mech'", 
+                label: "Nowość!", 
+                img: "https://placehold.co/300x300/2E5B45/F7F3E8?text=Kubek", 
+                url: "#" 
+            },
+            { 
+                title: "Makramowa Zawieszka 'Złota Gwiazda'", 
+                label: "Licytacja trwa", 
+                img: "https://placehold.co/300x300/C79A3B/F7F3E8?text=Makrama", 
+                url: "#" 
+            },
+            { 
+                title: "Skórzany Notes A5 (Grawer)", 
+                label: "Tylko 24h!", 
+                img: "https://placehold.co/300x300/2A2A2A/F7F3E8?text=Notes", 
+                url: "#" 
+            },
+            { 
+                title: "Komplet Bombek Szydełkowych", 
+                label: "", /* Brak etykiety */
+                img: "https://placehold.co/300x300/8C2F39/F7F3E8?text=Bombki", 
+                url: "#" 
+            },
+            { 
+                title: "Apaszka Jedwabna Ręcznie Malowana", 
+                label: "Do 4.12, 20:00", 
+                img: "https://placehold.co/300x300/2E5B45/F7F3E8?text=Apaszka", 
+                url: "#" 
+            },
+        ];
+
+        // ----------------------------------------------------
+        // --- 3. LOGIKA STRONY (NIE RUSZAĆ) ---
+        // ----------------------------------------------------
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // --- Logika: Wypełnianie linków ---
+            try {
+                // Linki główne
+                document.getElementById('siepomaga-link').href = SITE_CONFIG.SIEPOMAGA_URL;
+                document.getElementById('foundation-link').href = SITE_CONFIG.FOUNDATION_URL;
+                
+                // Linki w siatce "Jak pomóc"
+                document.getElementById('cta-siepomaga').href = SITE_CONFIG.SIEPOMAGA_URL;
+                document.getElementById('cta-fb-group').href = SITE_CONFIG.FB_GROUP_URL;
+                document.getElementById('cta-instagram').href = SITE_CONFIG.INSTAGRAM_URL;
+                
+                // Linki w FAQ i stopce
+                const igUsername = SITE_CONFIG.INSTAGRAM_URL.split('/').filter(Boolean).pop();
+                document.getElementById('faq-ig-link-text').textContent = `@${igUsername}`;
+                document.getElementById('faq-email-link-text').textContent = SITE_CONFIG.CONTACT_EMAIL;
+                document.getElementById('footer-email-link').href = `mailto:${SITE_CONFIG.CONTACT_EMAIL}`;
+                
+                // Linki aukcji (dla siatki "Jak pomóc" i hero)
+                const auctionLinks = document.querySelectorAll('a[href="#aukcje"]');
+                auctionLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.getElementById('aukcje').scrollIntoView({ behavior: 'smooth' });
+                    });
+                });
+            } catch (e) {
+                console.error("Błąd podczas ustawiania linków konfiguracyjnych:", e);
+            }
+
+            // --- Logika: Renderowanie siatki aukcji ---
+            const gridContainer = document.getElementById('auction-grid-container');
+            if (gridContainer) {
+                if (AUCTIONS_DATA.length > 0) {
+                    let gridHtml = '';
+                    for (const item of AUCTIONS_DATA) {
+                        const labelHtml = item.label ? `<span class="auction-card__label">${item.label}</span>` : '';
+                        
+                        gridHtml += `
+                        <a href="${item.url}" class="auction-card" target="_blank" rel="noopener noreferrer" title="${item.title}">
+                            <div class="auction-card__image-wrapper">
+                                <img src="${item.img}" alt="${item.title}" class="auction-card__image" loading="lazy" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/300x300/F7F3E8/2A2A2A?text=B%C5%82%C4%85d&font=work-sans';">
+                                ${labelHtml}
+                            </div>
+                            <h3 class="auction-card__title">${item.title}</h3>
+                            <span class="btn btn--small btn--secondary">Licytuj teraz</span>
+                        </a>
+                        `;
+                    }
+                    gridContainer.innerHTML = gridHtml;
+                } else {
+                    gridContainer.innerHTML = "<p class='text-center'>W tej chwili brak aktywnych aukcji. Zajrzyj ponownie o 20:00!</p>";
+                }
+            }
+            
+            // --- Logika: Przycisk "Powrót na górę" ---
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>
+
+
