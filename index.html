@@ -328,6 +328,7 @@
         /* --- 3. O Kacprze --- */
         .about-kacper p {
             margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         /* --- 4. Jak Pomóc (Siatka CTA) --- */
@@ -644,7 +645,7 @@
                 <p>
                     Witaj na naszym magicznym, świątecznym jarmarku online! Od 17 do 30 listopada wspaniali
                     rękodzielnicy z całej Polski wystawiają swoje prace na aukcje, z których <strong>całkowity
-                        dochód</strong> przeznaczony jest na wsparcie badań nad ultrarzadką chorobą genetyczną EIF3F.
+                        dochód przeznaczony jest na wsparcie badań nad ultrarzadką chorobą genetyczną EIF3F</strong>.
                 </p>
                 <p>
                     Codziennie pojawiają się nowe, wyjątkowe przedmioty — ręcznie zrobione, a każdy z nich pełen pasji,
@@ -658,10 +659,12 @@
             <!-- --- 3. O KACPRZE I FUNDACJI --- -->
             <section class="about-kacper section" id="o-kacprze">
                 <h2 class="section-title">Dla kogo zbieramy?</h2>
-                <p style="text-align: center">
-                    Kacper cierpi na ultrarzadką, postępującą chorobę genetyczną. Jedyną szansą
-                    jest terapia genowa, nad którą pracują naukowcy. Twoje wsparcie to światło w tunelu nie tylko dla
-                    Kacpra ale dla <strong>wszystkich dzieci mierzących się z mutacjąw genie EIF3F</strong></strong>.
+                <p>
+                    Kacper cierpi na ultrarzadką, postępującą chorobę genetyczną. Tak rzadką, że nie ma nawet nazwy i na
+                    którą, na dziś nie ma leczenia. Ale nie oznacza to, że jest to niemożliwe. Potrzebne są środki aby
+                    zbadać mechanizm choroby i przetestować ścieżki terapeutyczne. Wszystko po to aby znaleźć LEK. Twoje
+                    wsparcie to światło w tunelu nie tylko dla Kacpra ale
+                    <strong>wszystkich dzieci mierzących się z mutacją w genie EIF3F</strong></strong>.
                 </p>
                 <div class="btn-flex-group">
                     <a href="#" id="siepomaga-link" class="btn btn--primary" target="_blank"
@@ -709,6 +712,7 @@
             <!-- --- 5. AKTUALNE AUKCJE --- -->
             <section class="auctions section" id="aukcje">
                 <h2 class="section-title">Aktualne Aukcje</h2>
+                <p style="text-align: center">W tej chwili brak aktywnych aukcji. Zajrzyj ponownie 17 listopada!</p>
                 <div class="auction-grid" id="auction-grid-container">
                     <!-- 
                       Aukcje są wczytywane dynamicznie przez JavaScript.
@@ -977,7 +981,7 @@
                     }
                     gridContainer.innerHTML = gridHtml;
                 } else {
-                    gridContainer.innerHTML = "<p style="text-align: center" class='text-center'>W tej chwili brak aktywnych aukcji. Zajrzyj ponownie 17 listopada!</p>";
+                    gridContainer.innerHTML = "<p class='text-center'></p>";
                 }
             }
 
